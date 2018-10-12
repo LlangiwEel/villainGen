@@ -26,13 +26,13 @@ class VillainTextBox extends Component {
     super(props)
     this.state = {
       asA: "A ",
-      characteristicOne: characteristicArr[randomNumber(characteristicArr.length)],
-      characteristicTwo: characteristicArr[randomNumber(characteristicArr.length)],
-      race: raceArr[randomNumber(raceArr.length)],
-      characterClass: classArr[randomNumber(classArr.length)],
-      characterGoal: goalArr[randomNumber(goalArr.length)],
-      characterMotivation: motivationArr[randomNumber(motivationArr.length)],
-      characterGender: genderArr[randomNumber(genderArr.length)],
+      characteristicOne: '',
+      characteristicTwo: '',
+      race: '',
+      characterClass: '',
+      characterGoal: '',
+      characterMotivation: '',
+      characterGender: '',
       villainString: ''
     }
 
@@ -86,11 +86,8 @@ class VillainTextBox extends Component {
   }
 
   createVillainStr() {
-
-
-
     this.setState({
-      villainString: `${this.state.asA} ${this.state.characteristicOne}, ${this.state.characteristicTwo}, ${this.state.characterGender} ${this.state.characterClass} motivated by ${this.state.characterMotivation} seeks ${this.state.characterGoal}`
+      villainString: `This ${this.state.characterGender} ${this.state.race} ${this.state.characterClass} is ${this.state.characteristicOne} and ${this.state.characteristicTwo}. Driven by ${this.state.characterMotivation} they seek ${this.state.characterGoal}.`
     });
   }
 
