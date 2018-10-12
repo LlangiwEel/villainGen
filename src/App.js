@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-const raceArr = ["dragonborn", "vampire", "goblin", "human", "dwarf", "elf", "half-elf", "half-orc", "gnoll", "ghost", "halfling"];
-const classArr = ["barbarian", "bard", "druid", "ranger", "monk", "rogue", "sorcerer", "wizard"];
-const goalArr = ["immortality", "love", "power", "recognition", "vengeance", "wealth"];
-const motivationArr = ["achievement", "coercion", "conviction", "discord", "envy", "friendship", "guilt", "hate", "lust", "madness", "order"];
-const characteristicArr = ["arrogant", "avaricious", "cruel", "duplicitous", "envious", "gluttonous", "intolerant", "lascivious", "mad", "logical", "manipulative", "direct", "nihilistic", "traditional", "obsessive", "capricious", "slothful", "organised", "vain", "vindictive"];
-const genderArr = ["male", "female","male", "female","male", "female", "non-binary"];
+import * as characterArrs from './data.js';
 
 function randomNumber(num) {
   return Math.floor(Math.random() * num);
@@ -45,13 +39,13 @@ class VillainTextBox extends Component {
   createVillain() {
     this.setState({
       asA: "A ",
-      characteristicOne: characteristicArr[randomNumber(characteristicArr.length)],
-      characteristicTwo: characteristicArr[randomNumber(characteristicArr.length)],
-      race: raceArr[randomNumber(raceArr.length)],
-      characterClass: classArr[randomNumber(classArr.length)],
-      characterGoal: goalArr[randomNumber(goalArr.length)],
-      characterMotivation: motivationArr[randomNumber(motivationArr.length)],
-      characterGender: genderArr[randomNumber(genderArr.length)]
+      characteristicOne: characterArrs.characteristicArr[randomNumber(characterArrs.characteristicArr.length)],
+      characteristicTwo: characterArrs.characteristicArr[randomNumber(characterArrs.characteristicArr.length)],
+      race: characterArrs.raceArr[randomNumber(characterArrs.raceArr.length)],
+      characterClass: characterArrs.classArr[randomNumber(characterArrs.classArr.length)],
+      characterGoal: characterArrs.goalArr[randomNumber(characterArrs.goalArr.length)],
+      characterMotivation: characterArrs.motivationArr[randomNumber(characterArrs.motivationArr.length)],
+      characterGender: characterArrs.genderArr[randomNumber(characterArrs.genderArr.length)]
     }, function() {this.changePre()})
 
   }
@@ -78,7 +72,7 @@ class VillainTextBox extends Component {
   removeDupe() {
     if (this.state.characteristicOne === this.state.characteristicTwo) {
       this.setState({
-        characteristicTwo: characteristicArr[randomNumber(characteristicArr.length)]
+        characteristicTwo: characterArrs.characteristicArr[randomNumber(characterArrs.characteristicArr.length)]
       }, function() {this.createVillainStr()})
     } else {
       this.createVillainStr();
